@@ -110,19 +110,20 @@ const formEncode = data =>
     .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
     .join('&')
 
-const onSubmit = async (values, { setSubmitting, setErrors }) => {
-  try {
-    await fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: formEncode({ 'form-name': 'rsvp', ...values }),
+const onSubmit = (values, { setSubmitting, setErrors }) =>
+  fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: formEncode({ 'form-name': 'rsvp', ...values }),
+  })
+    .then(() => {
+      setSubmitting(false)
     })
-  } catch (e) {
-    console.error(e)
-    setErrors({})
-  }
-  setSubmitting(false)
-}
+    .catch(e => {
+      setSubmitting(false)
+      console.error(e)
+      setErrors({})
+    })
 
 const RsvpForm = initialValues => (
   <Formik
