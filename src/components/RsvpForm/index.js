@@ -1,11 +1,9 @@
 import React from 'react'
-import { Field, FieldArray, Form, Formik } from 'formik'
 import styled from 'styled-components'
-import { withHandlers } from 'recompose'
-import yup from 'yup'
+import { compose, withState, withHandlers } from 'recompose'
 
 const Label = styled.label`
-  display: block;
+  display: ${props => (props.hidden ? 'none' : 'block')};
 `
 
 const Text = styled.input.attrs({
@@ -26,168 +24,101 @@ const Radio = styled.input.attrs({
   display: inline-block;
 `
 
-const FieldText = ({ field, form, label, ...props }) => (
-  <Label>
+const FieldText = ({ hidden, label, ...props }) => (
+  <Label hidden={hidden}>
     {label}
-    <Text {...field} {...props} />
+    <Text {...props} />
   </Label>
 )
 
-const FieldEmail = ({ field, form, label, ...props }) => (
+const FieldEmail = ({ label, ...props }) => (
   <Label>
     {label}
-    <Email {...field} {...props} />
+    <Email {...props} />
   </Label>
 )
 
-const FieldRadio = ({
-  field: { value, ...rest },
-  form,
-  label,
-  valueId,
-  ...props
-}) => (
+const FieldRadio = ({ label, ...props }) => (
   <Label>
-    <Radio checked={value === valueId} value={valueId} {...rest} {...props} />
+    <Radio {...props} />
     {label}
   </Label>
 )
 
 const range = (min, max) => Array.from(new Array(max - min), (_, i) => i + min)
 
-const UnwrappedFieldGuests = ({ onSelectChange, name, form: { values } }) => (
-  <div>
-    <p>How many guests will you be bringing?</p>
-    <select onChange={onSelectChange}>
-      {range(0, 6).map(i => (
-        <option key={i} value={i}>
-          {i}
-        </option>
-      ))}
-    </select>
-    {values[name].map((guest, i) => (
-      <Field
-        key={i}
-        name={`${name}.${i}`}
-        component={FieldText}
-        label="Guest"
-      />
-    ))}
-  </div>
-)
-
-const enhance = withHandlers({
-  onSelectChange: props => event => {
-    const oldGuests = props.form.values[props.name]
-    const newNumGuests = event.target.value
-    if (oldGuests.length < newNumGuests) {
-      const newGuests = range(oldGuests.length, newNumGuests).fill('')
-      props.form.setFieldValue(props.name, oldGuests.concat(newGuests))
-    } else {
-      props.form.setFieldValue(props.name, oldGuests.slice(0, newNumGuests))
-    }
-  },
-})
-
-const FieldGuests = enhance(UnwrappedFieldGuests)
-
-const validationSchema = yup.object({
-  name: yup.string().required(),
-  email: yup
-    .string()
-    .email()
-    .required(),
-  coming: yup.boolean().required(),
-  guests: yup
-    .array()
-    .of(yup.string())
-    .min(0)
-    .max(5),
-})
-
-const transform = ({ guests, ...fields }) => ({
-  ...fields,
-  ...guests.reduce(
-    (acc, guest, index) => Object.assign(acc, { [`guests.${index}`]: guest }),
-    {}
-  ),
-})
-
-const formEncode = data =>
-  Object.keys(data)
-    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-    .join('&')
-
-const onSubmit = (values, { setSubmitting, setErrors }) =>
-  fetch('/', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: formEncode({ 'form-name': 'rsvp', ...transform(values) }),
+const enhance = compose(
+  withState('selected', 'setSelected', 0),
+  withHandlers({
+    onChange: props => event => {
+      props.setSelected(parseInt(event.target.value, 10))
+    },
   })
-    .then(() => {
-      setSubmitting(false)
-    })
-    .catch(e => {
-      console.error(e)
-      setSubmitting(false)
-      setErrors({})
-    })
-
-const RsvpForm = initialValues => (
-  <div>
-    <form name="rsvp" netlify netlify-honeypot="bot-field" hidden>
-      <input type="text" name="name" />
-      <input type="email" name="email" />
-      <input type="radio" name="coming" />
-      {range(0, 5).map(index => (
-        <input key={index} type="text" name={`guests.${index}`} />
-      ))}
-    </form>
-    <Formik
-      initialValues={initialValues}
-      validationSchema={validationSchema}
-      onSubmit={onSubmit}
-      render={({ isValid, errors, touched, isSubmitting }) => (
-        <Form>
-          <Field
-            name="name"
-            required={true}
-            component={FieldText}
-            label="Name"
-          />
-          <Field
-            name="email"
-            required={true}
-            component={FieldEmail}
-            label="Email Address"
-          />
-          <Field
-            name="coming"
-            required={true}
-            component={FieldRadio}
-            label="Yes, I'll be there"
-            valueId="true"
-          />
-          <Field
-            name="coming"
-            required={true}
-            component={FieldRadio}
-            label="Sorry, can't make it"
-            valueId="false"
-          />
-          <FieldArray name="guests" component={FieldGuests} />
-          <button disabled={isSubmitting}>Submit</button>
-        </Form>
-      )}
-    />
-  </div>
 )
 
-RsvpForm.defaultProps = {
-  name: '',
-  email: '',
-  coming: false,
-  guests: [],
-}
+const RsvpForm = ({ selected, onChange }) => (
+  <form
+    name="rsvp"
+    method="POST"
+    data-netlify
+    data-netlify-honeypot="bot-field"
+  >
+    <FieldText name="name" required={true} label="Name" />
+    <FieldEmail name="email" required={true} label="Email Address" />
+    <FieldRadio
+      name="coming"
+      required={true}
+      value="true"
+      label="Yes, I'll be there"
+    />
+    <FieldRadio
+      name="coming"
+      required={true}
+      value="false"
+      label="Sorry, can't make it"
+    />
+    <Label>
+      How many guests will you be bringing?
+      <select value={selected} onChange={onChange}>
+        {range(0, 6).map(index => (
+          <option key={index} value={index}>
+            {index}
+          </option>
+        ))}
+      </select>
+    </Label>
+    <FieldText
+      type="text"
+      name="guest-one"
+      label="Guest One"
+      hidden={selected < 1}
+    />
+    <FieldText
+      type="text"
+      name="guest-two"
+      label="Guest Two"
+      hidden={selected < 2}
+    />
+    <FieldText
+      type="text"
+      name="guest-three"
+      label="Guest Three"
+      hidden={selected < 3}
+    />
+    <FieldText
+      type="text"
+      name="guest-four"
+      label="Guest Four"
+      hidden={selected < 4}
+    />
+    <FieldText
+      type="text"
+      name="guest-five"
+      label="Guest Five"
+      hidden={selected < 5}
+    />
+    <button>Submit</button>
+  </form>
+)
 
-export default RsvpForm
+export default enhance(RsvpForm)
