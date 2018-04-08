@@ -1,10 +1,9 @@
 import React from 'react'
+import styled from 'styled-components'
 import RsvpForm from '../components/RsvpForm'
 
 const IndexPage = () => (
   <div>
-    <p>hello world</p>
-    <p>nick is wedding pirave on july 15, 2018</p>
     <iframe
       width="600"
       height="450"
