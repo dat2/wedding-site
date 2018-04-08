@@ -108,7 +108,7 @@ const validationSchema = yup.object({
 const transform = ({ guests, ...fields }) => ({
   ...fields,
   ...guests.reduce(
-    (acc, guest, index) => Object.assign(acc, { [`guest.${index}`]: guest }),
+    (acc, guest, index) => Object.assign(acc, { [`guests.${index}`]: guest }),
     {}
   ),
 })
@@ -134,44 +134,53 @@ const onSubmit = (values, { setSubmitting, setErrors }) =>
     })
 
 const RsvpForm = initialValues => (
-  <Formik
-    initialValues={initialValues}
-    validationSchema={validationSchema}
-    onSubmit={onSubmit}
-    render={({ isValid, errors, touched, isSubmitting }) => (
-      <Form
-        name="rsvp"
-        method="post"
-        action="/"
-        data-netlify="true"
-        data-netlify-honeypot="bot-field"
-      >
-        <Field name="name" required={true} component={FieldText} label="Name" />
-        <Field
-          name="email"
-          required={true}
-          component={FieldEmail}
-          label="Email Address"
-        />
-        <Field
-          name="coming"
-          required={true}
-          component={FieldRadio}
-          label="Yes, I'll be there"
-          valueId="true"
-        />
-        <Field
-          name="coming"
-          required={true}
-          component={FieldRadio}
-          label="Sorry, can't make it"
-          valueId="false"
-        />
-        <FieldArray name="guests" component={FieldGuests} />
-        <button disabled={isSubmitting}>Submit</button>
-      </Form>
-    )}
-  />
+  <div>
+    <form name="rsvp" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="radio" name="coming" />
+      {range(0, 5).map(index => (
+        <input key={index} type="text" name={`guests.${index}`} />
+      ))}
+    </form>
+    <Formik
+      initialValues={initialValues}
+      validationSchema={validationSchema}
+      onSubmit={onSubmit}
+      render={({ isValid, errors, touched, isSubmitting }) => (
+        <Form>
+          <Field
+            name="name"
+            required={true}
+            component={FieldText}
+            label="Name"
+          />
+          <Field
+            name="email"
+            required={true}
+            component={FieldEmail}
+            label="Email Address"
+          />
+          <Field
+            name="coming"
+            required={true}
+            component={FieldRadio}
+            label="Yes, I'll be there"
+            valueId="true"
+          />
+          <Field
+            name="coming"
+            required={true}
+            component={FieldRadio}
+            label="Sorry, can't make it"
+            valueId="false"
+          />
+          <FieldArray name="guests" component={FieldGuests} />
+          <button disabled={isSubmitting}>Submit</button>
+        </Form>
+      )}
+    />
+  </div>
 )
 
 RsvpForm.defaultProps = {
