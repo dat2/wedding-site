@@ -105,6 +105,14 @@ const validationSchema = yup.object({
     .max(5),
 })
 
+const transform = ({ guests, ...fields }) => ({
+  ...fields,
+  ...guests.reduce(
+    (acc, guest, index) => Object.assign(acc, { [`guest.${index}`]: guest }),
+    {}
+  ),
+})
+
 const formEncode = data =>
   Object.keys(data)
     .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
@@ -114,14 +122,14 @@ const onSubmit = (values, { setSubmitting, setErrors }) =>
   fetch('/', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: formEncode({ 'form-name': 'rsvp', ...values }),
+    body: formEncode({ 'form-name': 'rsvp', ...transform(values) }),
   })
     .then(() => {
       setSubmitting(false)
     })
     .catch(e => {
-      setSubmitting(false)
       console.error(e)
+      setSubmitting(false)
       setErrors({})
     })
 
