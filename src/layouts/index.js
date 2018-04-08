@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import './index.css'
 
 const Container = styled.div`
-  height: 100vh;
+  min-height: 100vh;
   background-color: #eaf4f4;
 `
 
@@ -28,7 +28,7 @@ const Script = styled.p`
 `
 
 const Children = styled.div`
-  height: 100%;
+  min-height: 100vh;
   background-color: white;
   margin: 0 auto;
   max-width: 960px;
