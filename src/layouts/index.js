@@ -10,6 +10,23 @@ const Container = styled.div`
   background-color: #eaf4f4;
 `
 
+const Children = styled.div`
+  min-height: 100vh;
+  background-color: white;
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 0px 1.0875rem 1.45rem;
+`
+
+const Header = styled.p`
+  background-color: #fda38d;
+  color: white;
+  font-family: 'Montserrat';
+  font-size: 60px;
+  line-height: 1.6em;
+  text-align: center;
+`
+
 const Tagline = styled.p`
   color: #7e7364;
   font-family: 'Libre Baskerville';
@@ -27,14 +44,6 @@ const Script = styled.p`
   margin-top: 10px;
 `
 
-const Children = styled.div`
-  min-height: 100vh;
-  background-color: white;
-  margin: 0 auto;
-  max-width: 960px;
-  padding: 0px 1.0875rem 1.45rem;
-`
-
 const TemplateWrapper = ({ children }) => (
   <Container>
     <Helmet
@@ -45,6 +54,7 @@ const TemplateWrapper = ({ children }) => (
       ]}
     />
     <Children>
+      <Header>#NickWedsPirave</Header>
       <Tagline>July 15, 2018</Tagline>
       <Script>Nick & Pirave </Script>
       <Tagline>Welcome to our wedding website!</Tagline>

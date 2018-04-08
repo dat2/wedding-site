@@ -7,7 +7,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-google-fonts',
       options: {
-        fonts: ['rouge script', 'libre baskerville'],
+        fonts: ['rouge script', 'libre baskerville', 'montserrat'],
       },
     },
   ],
