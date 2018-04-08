@@ -2,47 +2,51 @@ import React from 'react'
 import styled from 'styled-components'
 import { compose, withState, withHandlers } from 'recompose'
 
-const Label = styled.label`
+const FormGroup = styled.div`
   display: ${props => (props.hidden ? 'none' : 'block')};
+  margin-bottom: 15px;
 `
 
-const Text = styled.input.attrs({
-  type: 'text',
-})`
-  display: inline-block;
+const Label = styled.label`
+  display: block;
 `
 
-const Email = styled.input.attrs({
-  type: 'email',
-})`
-  display: inline-block;
+const Input = styled.input`
+  width: 100%;
+  height: 40px;
+  font-size: 15px;
+  line-height: 1.5em;
+  padding: 8px 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
 `
 
 const Radio = styled.input.attrs({
   type: 'radio',
 })`
   display: inline-block;
+  margin-right: 8px;
 `
 
-const FieldText = ({ hidden, label, ...props }) => (
-  <Label hidden={hidden}>
-    {label}
-    <Text {...props} />
-  </Label>
+const FieldText = ({ hidden, id, label, ...props }) => (
+  <FormGroup hidden={hidden}>
+    <Label htmlFor={id}>{label}</Label>
+    <Input type="text" id={id} {...props} />
+  </FormGroup>
 )
 
-const FieldEmail = ({ label, ...props }) => (
-  <Label>
-    {label}
-    <Email {...props} />
-  </Label>
+const FieldEmail = ({ id, label, ...props }) => (
+  <FormGroup>
+    <Label htmlFor={id}>{label}</Label>
+    <Input type="email" id={id} {...props} />
+  </FormGroup>
 )
 
-const FieldRadio = ({ label, ...props }) => (
-  <Label>
-    <Radio {...props} />
-    {label}
-  </Label>
+const FieldRadio = ({ id, label, ...props }) => (
+  <FormGroup>
+    <Radio id={id} {...props} />
+    <label htmlFor={id}>{label}</label>
+  </FormGroup>
 )
 
 const range = (min, max) => Array.from(new Array(max - min), (_, i) => i + min)
@@ -63,22 +67,39 @@ const RsvpForm = ({ selected, onChange }) => (
     data-netlify
     data-netlify-honeypot="bot-field"
   >
-    <FieldText name="name" required={true} label="Name" />
-    <FieldEmail name="email" required={true} label="Email Address" />
+    <FieldText
+      id="name"
+      name="name"
+      required={true}
+      label="Name"
+      placeholder="Your name"
+    />
+    <FieldEmail
+      id="email"
+      name="email"
+      required={true}
+      label="Email Address"
+      placeholder="example@example.com"
+    />
+    <FormGroup>
+      <Label>Will you be coming?</Label>
+    </FormGroup>
     <FieldRadio
+      id="coming-true"
       name="coming"
       required={true}
       value="true"
       label="Yes, I'll be there"
     />
     <FieldRadio
+      id="coming-false"
       name="coming"
       required={true}
       value="false"
       label="Sorry, can't make it"
     />
-    <Label>
-      How many guests will you be bringing?
+    <FormGroup>
+      <Label>How many guests will you be bringing?</Label>
       <select value={selected} onChange={onChange}>
         {range(0, 6).map(index => (
           <option key={index} value={index}>
@@ -86,37 +107,17 @@ const RsvpForm = ({ selected, onChange }) => (
           </option>
         ))}
       </select>
-    </Label>
-    <FieldText
-      type="text"
-      name="guest-one"
-      label="Guest One"
-      hidden={selected < 1}
-    />
-    <FieldText
-      type="text"
-      name="guest-two"
-      label="Guest Two"
-      hidden={selected < 2}
-    />
-    <FieldText
-      type="text"
-      name="guest-three"
-      label="Guest Three"
-      hidden={selected < 3}
-    />
-    <FieldText
-      type="text"
-      name="guest-four"
-      label="Guest Four"
-      hidden={selected < 4}
-    />
-    <FieldText
-      type="text"
-      name="guest-five"
-      label="Guest Five"
-      hidden={selected < 5}
-    />
+    </FormGroup>
+    {['one', 'two', 'three', 'four', 'five'].map((label, index) => (
+      <FieldText
+        key={label}
+        id={`guest-${label}`}
+        name={`guest-${label}`}
+        label={`Guest ${label[0].toUpperCase()}${label.substring(1)}`}
+        placeholder="Guest"
+        hidden={selected < index + 1}
+      />
+    ))}
     <button>Submit</button>
   </form>
 )

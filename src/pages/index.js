@@ -5,7 +5,7 @@ import RsvpForm from '../components/RsvpForm'
 const IndexPage = () => (
   <div>
     <iframe
-      width="600"
+      width="100%"
       height="450"
       frameBorder="0"
       style={{ border: '0' }}
