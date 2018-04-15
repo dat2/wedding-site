@@ -17,12 +17,13 @@ const Container = styled.div`
   color: #a39683;
 `
 
-const Children = styled.div`
-  min-height: 100vh;
+const PageContainer = styled.div`
   background-color: white;
   margin: 0 auto;
   max-width: 1190px;
-  padding: 0px 1.0875rem 1.45rem;
+  padding: 0px 1.0875rem;
+  display: flex;
+  flex-direction: column;
 `
 
 const Header = styled.div`
@@ -54,6 +55,10 @@ const Footer = styled.div`
   text-align: center;
 `
 
+const FooterImage = styled.img`
+  margin: 0;
+`
+
 const CentredText = styled.div`
   position: absolute;
   top: 50%;
@@ -73,7 +78,7 @@ const TemplateWrapper = ({ children }) => (
     <div className="header">
       <img className="headerImg" src={headerPeony} />
     </div>
-    <Children>
+    <PageContainer>
       <Tagline>July 15, 2018</Tagline>
       <Script className="great-vibes">Nick & Pirave</Script>
       <Tagline>Welcome to our wedding website!</Tagline>
@@ -82,10 +87,10 @@ const TemplateWrapper = ({ children }) => (
         <div className="children">{children()}</div>
       </div>
       <Footer>
-        <img src={footerPeony} />
+        <FooterImage src={footerPeony} />
         <CentredText>#NICKWEDSPIRAVE</CentredText>
       </Footer>
-    </Children>
+    </PageContainer>
   </Container>
 )
 
