@@ -5,6 +5,7 @@ import styled from 'styled-components'
 
 import './index.css'
 import './index.less'
+import NavMenu from '../components/NavMenu'
 import headerPeony from './images/header-peony.svg'
 import bkgImg from './images/bkg.png'
 
@@ -58,13 +59,16 @@ const TemplateWrapper = ({ children }) => (
       ]}
     />
     <div className="header">
-      <img className="headerImg" src={headerPeony}/>
+      <img className="headerImg" src={headerPeony} />
     </div>
     <Children>
       <Tagline>July 15, 2018</Tagline>
       <Script className="great-vibes">Nick & Pirave</Script>
       <Tagline>Welcome to our wedding website!</Tagline>
-      {children()}
+      <div className="page">
+        <NavMenu />
+        <div className="children">{children()}</div>
+      </div>
     </Children>
   </Container>
 )
