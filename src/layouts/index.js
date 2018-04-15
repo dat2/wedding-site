@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import './index.css'
 import './index.less'
 import NavMenu from '../components/NavMenu'
+import MobileNavMenu from '../components/MobileNavMenu'
 import headerPeony from './images/header-peony.svg'
 import footerPeony from './images/footer-peony.png'
 import bkgImg from './images/bkg.png'
@@ -52,7 +53,9 @@ const Script = styled.div`
 const Footer = styled.div`
   position: relative;
   text-align: center;
-  height: 165px;
+  @media (min-width: 769px) {
+    height: 165px;
+  }
 `
 
 const FooterImage = styled.img`
@@ -61,9 +64,9 @@ const FooterImage = styled.img`
 
 const CentredText = styled.div`
   position: absolute;
-  bottom: 10%;
   left: 50%;
-  transform: translate(-50%, 10%);
+  transform: translate(-50%, 50%);
+  bottom: 30%;
 `
 
 function getTagLine({ pathname }) {
@@ -83,6 +86,7 @@ const TemplateWrapper = ({ children, location }) => (
         { name: 'keywords', content: 'nick, pirave, wedding' },
       ]}
     />
+    <MobileNavMenu />
     <div className="header">
       <img className="headerImg" src={headerPeony} />
     </div>

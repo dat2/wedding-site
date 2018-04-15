@@ -3,6 +3,9 @@
 }
 .header {
   display: flex;
+  @media (max-width: 425px) {
+    display: none;
+  }
   justify-content: center;
   flex-direction: column;
   .headerImg {
@@ -48,27 +51,5 @@
 
   .children {
     flex-grow: 1;
-  }
-
-  .nav-list {
-    width: 25%;
-    ul {
-      li {
-        padding: 10px;
-        margin: 0;
-        margin-right: 0.725em;
-        a {
-          color: #a39683;
-          text-decoration: none;
-          font-family: 'Cinzel';
-          &:hover {
-            color: #fda38d;
-          }
-        }
-        ~ li {
-          border-top: 1px solid #ececec;
-        }
-      }
-    }
   }
 }
