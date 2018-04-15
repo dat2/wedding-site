@@ -76,15 +76,24 @@ const FooterImage = styled.img`
 const CentredText = styled.div`
   position: absolute;
   left: 50%;
+  bottom: 15%;
   transform: translate(-50%, 50%);
-  bottom: 30%;
+  @media (max-width: 425px) {
+    font-size: 0.875em;
+    bottom: 40%;
+  }
 `
 
 function getTagLine({ pathname }) {
-  if (pathname === '/') {
-    return 'Welcome to our wedding website!'
-  } else if (pathname.includes('photos') || pathname.includes('faq')) {
-    return 'Coming Soon'
+  switch (pathname) {
+    case '/':
+      return 'Welcome to our wedding website!'
+    case '/event/':
+      return 'Event Details'
+    case '/rsvp/':
+      return 'RSVP'
+    default:
+      return 'Coming Soon'
   }
 }
 
