@@ -4,40 +4,44 @@ import Helmet from 'react-helmet'
 import styled from 'styled-components'
 
 import './index.css'
+import './index.less'
+import headerPeony from './images/header-peony.svg'
+import bkgImg from './images/bkg.png'
 
 const Container = styled.div`
   min-height: 100vh;
   background-color: #eaf4f4;
+  background-image: url(${bkgImg});
+  font-family: 'Merriweather';
+  color: #a39683;
 `
 
 const Children = styled.div`
   min-height: 100vh;
   background-color: white;
   margin: 0 auto;
-  max-width: 960px;
+  max-width: 1190px;
   padding: 0px 1.0875rem 1.45rem;
 `
 
-const Header = styled.p`
+const Header = styled.div`
   background-color: #fda38d;
   color: white;
-  font-family: 'Montserrat';
   font-size: 60px;
   line-height: 1.6em;
   text-align: center;
 `
 
-const Tagline = styled.p`
+const Tagline = styled.div`
   color: #7e7364;
-  font-family: 'Libre Baskerville';
+  font-family: 'Cinzel';
   font-size: 24px;
   line-height: 1.6em;
   text-align: center;
 `
 
-const Script = styled.p`
+const Script = styled.div`
   color: #fda38d;
-  font-family: 'Rouge Script';
   font-size: 60px;
   line-height: 1.6em;
   text-align: center;
@@ -53,10 +57,12 @@ const TemplateWrapper = ({ children }) => (
         { name: 'keywords', content: 'nick, pirave, wedding' },
       ]}
     />
+    <div className="header">
+      <img className="headerImg" src={headerPeony}/>
+    </div>
     <Children>
-      <Header>#NickWedsPirave</Header>
       <Tagline>July 15, 2018</Tagline>
-      <Script>Nick & Pirave </Script>
+      <Script className="great-vibes">Nick & Pirave</Script>
       <Tagline>Welcome to our wedding website!</Tagline>
       {children()}
     </Children>

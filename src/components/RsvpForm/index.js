@@ -118,7 +118,7 @@ const RsvpForm = ({ selected, onChange }) => (
         hidden={selected < index + 1}
       />
     ))}
-    <button>Submit</button>
+    <button className="btn btn-primary">Submit</button>
   </form>
 )
 
