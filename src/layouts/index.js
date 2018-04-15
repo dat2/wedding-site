@@ -52,6 +52,7 @@ const Script = styled.div`
 const Footer = styled.div`
   position: relative;
   text-align: center;
+  height: 165px;
 `
 
 const FooterImage = styled.img`
@@ -60,9 +61,9 @@ const FooterImage = styled.img`
 
 const CentredText = styled.div`
   position: absolute;
-  top: 50%;
+  bottom: 10%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 10%);
 `
 
 function getTagLine({ pathname }) {
