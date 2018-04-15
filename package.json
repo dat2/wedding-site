@@ -13,6 +13,7 @@
     "gatsby-plugin-less": "^1.1.8",
     "gatsby-plugin-react-helmet": "^2.0.8",
     "gatsby-plugin-styled-components": "^2.0.11",
+    "react-animate-height": "^1.0.1",
     "react-click-outside": "github:tj/react-click-outside",
     "react-helmet": "^5.2.0",
     "recompose": "^0.26.0",

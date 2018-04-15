@@ -16,12 +16,20 @@ const Container = styled.div`
   background-color: #eaf4f4;
   background-image: url(${bkgImg});
   color: #a39683;
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: 425px) {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
 `
 
 const PageContainer = styled.div`
   background-color: white;
   margin: 0 auto;
   max-width: 1170px;
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
   @media (max-width: 425px) {
@@ -89,7 +97,7 @@ const TemplateWrapper = ({ children, location }) => (
         { name: 'keywords', content: 'nick, pirave, wedding' },
       ]}
     />
-    <MobileNavMenu location={location} />
+    <MobileNavMenu />
     <div className="header">
       <img className="headerImg" src={headerPeony} />
     </div>

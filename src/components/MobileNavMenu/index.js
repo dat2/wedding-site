@@ -3,13 +3,19 @@ import Link from 'gatsby-link'
 import styled from 'styled-components'
 import { compose, withHandlers, withState } from 'recompose'
 import ClickOutside from 'react-click-outside'
+import AnimateHeight from 'react-animate-height'
 
 import bars from './bars.svg'
 
 const Nav = styled.nav`
-  position: fixed;
-  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
   cursor: pointer;
+  @media (min-width: 426px) {
+    display: none;
+  }
 `
 
 const Bar = styled.div`
@@ -19,13 +25,10 @@ const Bar = styled.div`
   &:hover {
     background-color: #ffaa9b;
   }
-  @media (min-width: 426px) {
-    display: none;
-  }
 `
 
 const Menu = styled.div`
-  display: ${props => (props.visible ? 'flex' : 'none')};
+  display: flex;
   flex-wrap: wrap;
   background-color: #fda38d;
   a {
@@ -49,29 +52,31 @@ const FaBars = styled.img.attrs({
   overflow: visible;
 `
 
-const MobileNavMenu = ({ location, visible, toggleVisible, closeMenu }) => (
+const MobileNavMenu = ({ visible, toggleVisible, closeMenu }) => (
   <ClickOutside onClickOutside={closeMenu}>
     <Nav onClick={toggleVisible}>
       <Bar>
         <FaBars />
       </Bar>
-      <Menu visible={visible}>
-        <Link to="/" exact activeStyle={{ backgroundColor: '#ffaa9b' }}>
-          Welcome
-        </Link>
-        <Link to="/event" activeStyle={{ backgroundColor: '#ffaa9b' }}>
-          Wedding Event
-        </Link>
-        <Link to="/rsvp" activeStyle={{ backgroundColor: '#ffaa9b' }}>
-          RSVP
-        </Link>
-        <Link to="/photos" activeStyle={{ backgroundColor: '#ffaa9b' }}>
-          Photo Gallery
-        </Link>
-        <Link to="/faq" activeStyle={{ backgroundColor: '#ffaa9b' }}>
-          FAQ
-        </Link>
-      </Menu>
+      <AnimateHeight duration={500} height={visible ? 'auto' : 0}>
+        <Menu>
+          <Link to="/" exact activeStyle={{ backgroundColor: '#ffaa9b' }}>
+            Welcome
+          </Link>
+          <Link to="/event" activeStyle={{ backgroundColor: '#ffaa9b' }}>
+            Wedding Event
+          </Link>
+          <Link to="/rsvp" activeStyle={{ backgroundColor: '#ffaa9b' }}>
+            RSVP
+          </Link>
+          <Link to="/photos" activeStyle={{ backgroundColor: '#ffaa9b' }}>
+            Photo Gallery
+          </Link>
+          <Link to="/faq" activeStyle={{ backgroundColor: '#ffaa9b' }}>
+            FAQ
+          </Link>
+        </Menu>
+      </AnimateHeight>
     </Nav>
   </ClickOutside>
 )
