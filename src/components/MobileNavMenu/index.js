@@ -9,6 +9,7 @@ import bars from './bars.svg'
 const Nav = styled.nav`
   position: fixed;
   width: 100%;
+  cursor: pointer;
 `
 
 const Bar = styled.div`
