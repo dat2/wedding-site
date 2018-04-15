@@ -8,6 +8,7 @@
     "babel-plugin-styled-components": "^1.5.1",
     "gatsby": "^1.9.241",
     "gatsby-link": "^1.6.39",
+    "gatsby-plugin-favicon": "^2.1.1",
     "gatsby-plugin-google-fonts": "0.0.4",
     "gatsby-plugin-less": "^1.1.8",
     "gatsby-plugin-react-helmet": "^2.0.8",
