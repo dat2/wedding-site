@@ -8,7 +8,7 @@ import AnimateHeight from 'react-animate-height'
 import bars from './bars.svg'
 
 const Nav = styled.nav`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
