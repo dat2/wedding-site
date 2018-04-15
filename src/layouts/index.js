@@ -50,8 +50,15 @@ const Script = styled.div`
 `
 
 const Footer = styled.div`
-  background-image: url(${footerPeony});
-      padding: 10% 0px 40px 0px;
+  position: relative;
+  text-align: center;
+`
+
+const CentredText = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `
 
 const TemplateWrapper = ({ children }) => (
@@ -74,10 +81,10 @@ const TemplateWrapper = ({ children }) => (
         <NavMenu />
         <div className="children">{children()}</div>
       </div>
-
-    <Footer>
-      #NICKWEDSPIRAVE
-    </Footer>
+      <Footer>
+        <img src={footerPeony} />
+        <CentredText>#NICKWEDSPIRAVE</CentredText>
+      </Footer>
     </Children>
   </Container>
 )
