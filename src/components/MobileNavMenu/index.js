@@ -4,41 +4,77 @@ import styled from 'styled-components'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import faBars from '@fortawesome/fontawesome-free-solid/faBars'
 import { compose, withHandlers, withState } from 'recompose'
+import ClickOutside from 'react-click-outside'
 
-import './index.less'
-
-const Menu = styled.ul`
-  display: ${props => (props.visible ? 'flex' : 'none')};
+const Nav = styled.nav`
+  position: fixed;
+  width: 100%;
 `
 
-const MobileNavMenu = ({ visible, toggleVisible }) => (
-  <nav className="mobile-nav-list" onClick={toggleVisible}>
-    <FontAwesomeIcon icon={faBars} />
-    <Menu visible={visible}>
-      <li>
-        <Link to="/">Welcome</Link>
-      </li>
-      <li>
-        <Link to="/event">Wedding Event</Link>
-      </li>
-      <li>
-        <Link to="/rsvp">RSVP</Link>
-      </li>
-      <li>
-        <Link to="/photos">Photo Gallery</Link>
-      </li>
-      <li>
-        <Link to="/faq">FAQ</Link>
-      </li>
-    </Menu>
-  </nav>
+const Bar = styled.div`
+  background-color: #fda38d;
+  color: white;
+  padding: 5px 10px;
+  &:hover {
+    background-color: #ffaa9b;
+  }
+  @media (min-width: 426px) {
+    display: none;
+  }
+`
+
+const Menu = styled.div`
+  display: ${props => (props.visible ? 'flex' : 'none')};
+  flex-wrap: wrap;
+  background-color: #fda38d;
+  a {
+    text-align: center;
+    padding: 10px;
+    margin: 0;
+    width: 50%;
+    text-decoration: none;
+    font-family: 'Cinzel';
+    &:visited {
+      color: white;
+    }
+  }
+`
+
+const MobileNavMenu = ({ location, visible, toggleVisible, closeMenu }) => (
+  <ClickOutside onClickOutside={closeMenu}>
+    <Nav onClick={toggleVisible}>
+      <Bar>
+        <FontAwesomeIcon icon={faBars} />
+      </Bar>
+      <Menu visible={visible}>
+        <Link to="/" exact activeStyle={{ backgroundColor: '#ffaa9b' }}>
+          Welcome
+        </Link>
+        <Link to="/event" activeStyle={{ backgroundColor: '#ffaa9b' }}>
+          Wedding Event
+        </Link>
+        <Link to="/rsvp" activeStyle={{ backgroundColor: '#ffaa9b' }}>
+          RSVP
+        </Link>
+        <Link to="/photos" activeStyle={{ backgroundColor: '#ffaa9b' }}>
+          Photo Gallery
+        </Link>
+        <Link to="/faq" activeStyle={{ backgroundColor: '#ffaa9b' }}>
+          FAQ
+        </Link>
+      </Menu>
+    </Nav>
+  </ClickOutside>
 )
 
 const enhance = compose(
   withState('visible', 'setVisible', false),
   withHandlers({
-    toggleVisible: props => event => {
+    toggleVisible: props => () => {
       props.setVisible(!props.visible)
+    },
+    closeMenu: props => () => {
+      props.setVisible(false)
     },
   })
 )

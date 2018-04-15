@@ -89,7 +89,7 @@ const TemplateWrapper = ({ children, location }) => (
         { name: 'keywords', content: 'nick, pirave, wedding' },
       ]}
     />
-    <MobileNavMenu />
+    <MobileNavMenu location={location} />
     <div className="header">
       <img className="headerImg" src={headerPeony} />
     </div>
