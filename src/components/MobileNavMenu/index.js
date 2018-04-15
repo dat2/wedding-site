@@ -63,16 +63,16 @@ const MobileNavMenu = ({ visible, toggleVisible, closeMenu }) => (
           <Link to="/" exact activeStyle={{ backgroundColor: '#ffaa9b' }}>
             Welcome
           </Link>
-          <Link to="/event" activeStyle={{ backgroundColor: '#ffaa9b' }}>
+          <Link to="/event/" activeStyle={{ backgroundColor: '#ffaa9b' }}>
             Wedding Event
           </Link>
-          <Link to="/rsvp" activeStyle={{ backgroundColor: '#ffaa9b' }}>
+          <Link to="/rsvp/" activeStyle={{ backgroundColor: '#ffaa9b' }}>
             RSVP
           </Link>
-          <Link to="/photos" activeStyle={{ backgroundColor: '#ffaa9b' }}>
+          <Link to="/photos/" activeStyle={{ backgroundColor: '#ffaa9b' }}>
             Photo Gallery
           </Link>
-          <Link to="/faq" activeStyle={{ backgroundColor: '#ffaa9b' }}>
+          <Link to="/faq/" activeStyle={{ backgroundColor: '#ffaa9b' }}>
             FAQ
           </Link>
         </Menu>
