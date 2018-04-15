@@ -1,10 +1,10 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
-import FontAwesomeIcon from '@fortawesome/react-fontawesome'
-import faBars from '@fortawesome/fontawesome-free-solid/faBars'
 import { compose, withHandlers, withState } from 'recompose'
 import ClickOutside from 'react-click-outside'
+
+import bars from './bars.svg'
 
 const Nav = styled.nav`
   position: fixed;
@@ -40,11 +40,19 @@ const Menu = styled.div`
   }
 `
 
+const FaBars = styled.img.attrs({
+  src: bars,
+})`
+    margin: 0;
+  width: 0.875em;
+  overflow: visible;
+`
+
 const MobileNavMenu = ({ location, visible, toggleVisible, closeMenu }) => (
   <ClickOutside onClickOutside={closeMenu}>
     <Nav onClick={toggleVisible}>
       <Bar>
-        <FontAwesomeIcon icon={faBars} />
+        <FaBars />
       </Bar>
       <Menu visible={visible}>
         <Link to="/" exact activeStyle={{ backgroundColor: '#ffaa9b' }}>
