@@ -43,7 +43,7 @@ const Menu = styled.div`
 const FaBars = styled.img.attrs({
   src: bars,
 })`
-    margin: 0;
+  margin: 0;
   width: 0.875em;
   overflow: visible;
 `
