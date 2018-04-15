@@ -11,5 +11,6 @@ module.exports = {
         fonts: ['rouge script', 'libre baskerville', 'montserrat'],
       },
     },
+    'gatsby-plugin-less',
   ],
 }
