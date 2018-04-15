@@ -81,7 +81,6 @@ const TemplateWrapper = ({ children }) => (
     <PageContainer>
       <Tagline>July 15, 2018</Tagline>
       <Script className="great-vibes">Nick & Pirave</Script>
-      <Tagline>Welcome to our wedding website!</Tagline>
       <div className="page">
         <NavMenu />
         <div className="children">{children()}</div>

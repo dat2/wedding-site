@@ -48,4 +48,36 @@
   .children {
     flex-grow: 1;
   }
+
+  .nav-list {
+    width: 25%;
+    ul {
+      li {
+        padding: 10px;
+        margin: 0;
+        margin-right: 0.725em;
+        a {
+          color: #a39683;
+          text-decoration: none;
+          font-family: 'Cinzel';
+          &:hover {
+            color: #fda38d;
+          }
+        }
+        ~ li {
+          border-top: 1px solid #ececec;
+        }
+      }
+    }
+  }
+
+  .tag-line {
+    color: #7e7364;
+    font-family: 'Cinzel';
+    font-size: 24px;
+    line-height: 1.6em;
+    text-align: center;
+    margin-top: -20px;
+    margin-left: -33%;
+  }
 }

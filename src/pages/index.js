@@ -1,5 +1,7 @@
 import React from 'react'
 
-const IndexPage = () => <div>Welcome</div>
+const IndexPage = () => (
+  <div className="tag-line">Welcome to our wedding website!</div>
+)
 
 export default IndexPage
