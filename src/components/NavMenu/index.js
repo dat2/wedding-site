@@ -1,9 +1,15 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import styled from 'styled-components'
+
+const List = styled.ul`
+  list-style: none;
+  margin: 0;
+`
 
 const NavMenu = () => (
   <nav>
-    <ul>
+    <List>
       <li>
         <Link to="/">Welcome</Link>
       </li>
@@ -19,7 +25,7 @@ const NavMenu = () => (
       <li>
         <Link to="/rsvp">RSVP</Link>
       </li>
-    </ul>
+    </List>
   </nav>
 )
 
