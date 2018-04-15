@@ -20,8 +20,7 @@ const Container = styled.div`
 const PageContainer = styled.div`
   background-color: white;
   margin: 0 auto;
-  max-width: 1190px;
-  padding: 0px 1.0875rem;
+  max-width: 1170px;
   display: flex;
   flex-direction: column;
 `
@@ -66,7 +65,15 @@ const CentredText = styled.div`
   transform: translate(-50%, -50%);
 `
 
-const TemplateWrapper = ({ children }) => (
+function getTagLine({ pathname }) {
+  if (pathname === '/') {
+    return 'Welcome to our wedding website!'
+  } else if (pathname.includes('photos') || pathname.includes('faq')) {
+    return 'Coming Soon'
+  }
+}
+
+const TemplateWrapper = ({ children, location }) => (
   <Container>
     <Helmet
       title="Nick Weds Pirave"
@@ -81,6 +88,7 @@ const TemplateWrapper = ({ children }) => (
     <PageContainer>
       <Tagline>July 15, 2018</Tagline>
       <Script className="great-vibes">Nick & Pirave</Script>
+      <Tagline>{getTagLine(location)}</Tagline>
       <div className="page">
         <NavMenu />
         <div className="children">{children()}</div>
