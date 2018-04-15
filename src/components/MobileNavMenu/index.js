@@ -31,17 +31,6 @@ const Menu = styled.div`
   display: flex;
   flex-wrap: wrap;
   background-color: #fda38d;
-  a {
-    text-align: center;
-    padding: 10px;
-    margin: 0;
-    width: 50%;
-    text-decoration: none;
-    font-family: 'Cinzel';
-    &:visited {
-      color: white;
-    }
-  }
 `
 
 const FaBars = styled.img.attrs({
@@ -52,6 +41,19 @@ const FaBars = styled.img.attrs({
   overflow: visible;
 `
 
+const StyledLink = styled(Link)`
+  text-align: center;
+  padding: 10px;
+  margin: 0;
+  width: 50%;
+  text-decoration: none;
+  font-family: 'Cinzel';
+  color: white;
+  &:visited {
+    color: white;
+  }
+`
+
 const MobileNavMenu = ({ visible, toggleVisible, closeMenu }) => (
   <ClickOutside onClickOutside={closeMenu}>
     <Nav onClick={toggleVisible}>
@@ -60,21 +62,24 @@ const MobileNavMenu = ({ visible, toggleVisible, closeMenu }) => (
       </Bar>
       <AnimateHeight duration={500} height={visible ? 'auto' : 0}>
         <Menu>
-          <Link to="/" exact activeStyle={{ backgroundColor: '#ffaa9b' }}>
+          <StyledLink to="/" exact activeStyle={{ backgroundColor: '#ffaa9b' }}>
             Welcome
-          </Link>
-          <Link to="/event/" activeStyle={{ backgroundColor: '#ffaa9b' }}>
+          </StyledLink>
+          <StyledLink to="/event/" activeStyle={{ backgroundColor: '#ffaa9b' }}>
             Wedding Event
-          </Link>
-          <Link to="/rsvp/" activeStyle={{ backgroundColor: '#ffaa9b' }}>
+          </StyledLink>
+          <StyledLink to="/rsvp/" activeStyle={{ backgroundColor: '#ffaa9b' }}>
             RSVP
-          </Link>
-          <Link to="/photos/" activeStyle={{ backgroundColor: '#ffaa9b' }}>
+          </StyledLink>
+          <StyledLink
+            to="/photos/"
+            activeStyle={{ backgroundColor: '#ffaa9b' }}
+          >
             Photo Gallery
-          </Link>
-          <Link to="/faq/" activeStyle={{ backgroundColor: '#ffaa9b' }}>
+          </StyledLink>
+          <StyledLink to="/faq/" activeStyle={{ backgroundColor: '#ffaa9b' }}>
             FAQ
-          </Link>
+          </StyledLink>
         </Menu>
       </AnimateHeight>
     </Nav>
