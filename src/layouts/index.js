@@ -7,13 +7,13 @@ import './index.css'
 import './index.less'
 import NavMenu from '../components/NavMenu'
 import headerPeony from './images/header-peony.svg'
+import footerPeony from './images/footer-peony.png'
 import bkgImg from './images/bkg.png'
 
 const Container = styled.div`
   min-height: 100vh;
   background-color: #eaf4f4;
   background-image: url(${bkgImg});
-  font-family: 'Merriweather';
   color: #a39683;
 `
 
@@ -49,6 +49,11 @@ const Script = styled.div`
   margin-top: 10px;
 `
 
+const Footer = styled.div`
+  background-image: url(${footerPeony});
+      padding: 10% 0px 40px 0px;
+`
+
 const TemplateWrapper = ({ children }) => (
   <Container>
     <Helmet
@@ -69,6 +74,10 @@ const TemplateWrapper = ({ children }) => (
         <NavMenu />
         <div className="children">{children()}</div>
       </div>
+
+    <Footer>
+      #NICKWEDSPIRAVE
+    </Footer>
     </Children>
   </Container>
 )
