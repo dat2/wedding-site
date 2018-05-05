@@ -92,6 +92,8 @@ function getTagLine({ pathname }) {
       return 'Event Details'
     case '/rsvp/':
       return 'RSVP'
+    case '/thanks/':
+      return ''
     default:
       return 'Coming Soon'
   }
