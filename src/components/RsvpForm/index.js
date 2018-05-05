@@ -68,6 +68,7 @@ const RsvpForm = ({ selected, onChange }) => (
     data-netlify="true"
     data-netlify-honeypot="bot-field"
   >
+    <input hidden id="bot-field" name="bot-field" />
     <FieldText
       id="name"
       name="name"
