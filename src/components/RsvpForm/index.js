@@ -64,7 +64,7 @@ const RsvpForm = ({ selected, onChange }) => (
   <form
     name="rsvp"
     method="POST"
-    data-netlify
+    data-netlify="true"
     data-netlify-honeypot="bot-field"
   >
     <FieldText
