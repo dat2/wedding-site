@@ -63,7 +63,8 @@ const enhance = compose(
 const RsvpForm = ({ selected, onChange }) => (
   <form
     name="rsvp"
-    method="POST"
+    method="post"
+    action="/thanks/"
     data-netlify="true"
     data-netlify-honeypot="bot-field"
   >
