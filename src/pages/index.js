@@ -56,14 +56,8 @@ const Spacer = Text.extend`
   font-size: 48px;
 `
 
-const IndexPage = ({
-  remaining: { months, weeks, days, hours, minutes, seconds },
-}) => (
+const IndexPage = ({ remaining: { days, hours, minutes, seconds } }) => (
   <Centered>
-    <TimeBlock time={months} label="month" />
-    <Spacer>:</Spacer>
-    <TimeBlock time={weeks} label="week" />
-    <Spacer>:</Spacer>
     <TimeBlock time={days} label="day" />
     <Spacer>:</Spacer>
     <TimeBlock time={hours} label="hour" />
@@ -76,41 +70,21 @@ const IndexPage = ({
 
 function calculateTimeRemaining(end = new Date(2018, 6, 15)) {
   const now = new Date()
-  const monthsLeft = differenceInMonths(end, now)
+  const daysLeft = differenceInDays(end, now)
 
-  const nowPlusMonths = addMonths(now, monthsLeft)
-  const weeksLeft = differenceInWeeks(end, nowPlusMonths)
+  const nowPlusDays = addDays(now, daysLeft)
+  const hoursLeft = differenceInHours(end, nowPlusDays)
 
-  const nowPlusMonthsPlusWeeks = addWeeks(nowPlusMonths, weeksLeft)
-  const daysLeft = differenceInDays(end, nowPlusMonthsPlusWeeks)
+  const nowPlusDaysPlusHours = addHours(nowPlusDays, hoursLeft)
+  const minutesLeft = differenceInMinutes(end, nowPlusDaysPlusHours)
 
-  const nowPlusMonthsPlusWeeksPlusDays = addDays(
-    nowPlusMonthsPlusWeeks,
-    daysLeft
-  )
-  const hoursLeft = differenceInHours(end, nowPlusMonthsPlusWeeksPlusDays)
-
-  const nowPlusMonthsPlusWeeksPlusDaysPlusHours = addHours(
-    nowPlusMonthsPlusWeeksPlusDays,
-    hoursLeft
-  )
-  const minutesLeft = differenceInMinutes(
-    end,
-    nowPlusMonthsPlusWeeksPlusDaysPlusHours
-  )
-
-  const nowPlusMonthsPlusWeeksPlusDaysPlusHoursPlusMinutes = addMinutes(
-    nowPlusMonthsPlusWeeksPlusDaysPlusHours,
+  const nowPlusDaysPlusHoursPlusMinutes = addMinutes(
+    nowPlusDaysPlusHours,
     minutesLeft
   )
-  const secondsLeft = differenceInSeconds(
-    end,
-    nowPlusMonthsPlusWeeksPlusDaysPlusHoursPlusMinutes
-  )
+  const secondsLeft = differenceInSeconds(end, nowPlusDaysPlusHoursPlusMinutes)
 
   return {
-    months: monthsLeft,
-    weeks: weeksLeft,
     days: daysLeft,
     hours: hoursLeft,
     minutes: minutesLeft,
