@@ -92,13 +92,22 @@ const FaqPage = () => (
 
     <div className="faq-question">Is there a gifts registry?</div>
     <div className="faq-answer">
-      Please contact the Dujay residence for more details at (416) 898-4590.
+      The most important gift to us is have you share our day, but if insist
+      please contact the Dujay residence for more details at (416) 898-4590.
+      Information will also be sent with your RSVP confirmation :)
     </div>
     <div className="faq-question">
       Is there someone I can contact if I have any other questions about the
       wedding?
     </div>
-    <div className="faq-answer">Yes.</div>
+    <div className="faq-answer">
+      <div>
+        <b>Dujay Residence</b>: (416) 898-4590
+      </div>
+      <div>
+        <b>Eahalaivan Residence</b>: (905) 472-5599
+      </div>
+    </div>
   </div>
 )
 
