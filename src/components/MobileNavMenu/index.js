@@ -68,6 +68,9 @@ const MobileNavMenu = ({ visible, toggleVisible, closeMenu }) => (
           <StyledLink to="/event/" activeStyle={{ backgroundColor: '#ffaa9b' }}>
             Wedding Event
           </StyledLink>
+          <StyledLink to="/program/" activeStyle={{ backgroundColor: '#ffaa9b' }}>
+            Wedding Program
+          </StyledLink>
           <StyledLink to="/rsvp/" activeStyle={{ backgroundColor: '#ffaa9b' }}>
             RSVP
           </StyledLink>

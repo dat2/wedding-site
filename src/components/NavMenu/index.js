@@ -40,6 +40,9 @@ const NavMenu = () => (
       <StyledLink to="/event/" activeStyle={{ color: '#fda38d' }}>
         Wedding Event
       </StyledLink>
+      <StyledLink to="/program/" activeStyle={{ color: '#fda38d' }}>
+        Wedding Program
+      </StyledLink>
       <StyledLink to="/rsvp/" activeStyle={{ color: '#fda38d' }}>
         RSVP
       </StyledLink>
