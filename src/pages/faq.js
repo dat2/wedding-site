@@ -39,7 +39,7 @@ const FaqPage = () => (
     </div>
     <div className="faq-answer">
       All colours of the rainbow are welcome! We only ask you try to avoid stark
-      white or black.
+      white or black. However dress Pants and Suits may be black.
     </div>
 
     <div className="faq-question">
