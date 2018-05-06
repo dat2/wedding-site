@@ -3,7 +3,8 @@ import Link from 'gatsby-link'
 import styled from 'styled-components'
 
 const Nav = styled.nav`
-  width: 25%;
+  flex-basis: 25%;
+  flex-shrink: 0;
   @media (max-width: 425px) {
     display: none;
   }
