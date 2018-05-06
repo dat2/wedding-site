@@ -1,10 +1,12 @@
 import React from 'react'
 import './faq.less'
+import Link from 'gatsby-link'
+
 const FaqPage = () => (
   <div id="faq">
     <div className="faq-question">How do I get to the venue?</div>
     <div className="faq-answer">
-      Please refer to the <a href="">wedding event</a>.
+      Please refer to the <Link to="/event/">wedding event</Link>.
     </div>
     <div className="faq-question">Is there parking available at the venue?</div>
     <div className="faq-answer">Yes, there is a parking lot attached.</div>
@@ -46,7 +48,8 @@ const FaqPage = () => (
       Can I take pictures and/or post photos of your wedding on social media?
     </div>
     <div className="faq-answer">
-      Yes! Please share your pictures with us using the hashtag #nickwedspirave.
+      Yes! Please share your pictures with us using the hashtag&nbsp;
+      <tt>#nickwedspirave</tt>.
     </div>
     <div className="faq-question">Will food be served?</div>
     <div className="faq-answer">
@@ -62,8 +65,8 @@ const FaqPage = () => (
       Will there be any activities happening that I need to know about?
     </div>
     <div className="faq-answer">
-      Yes! Please refer to the <a href="">wedding program</a> to learn more
-      details.
+      Yes! Please refer to the <Link to="/program/">wedding program</Link> to
+      learn more details.
     </div>
 
     <div className="faq-question">What time should I arrive?</div>
@@ -80,7 +83,7 @@ const FaqPage = () => (
 
     <div className="faq-question">How can I RSVP?</div>
     <div className="faq-answer">
-      Please RSVP online at <a href="" />.
+      Please RSVP online <Link to="/rsvp/">here</Link>.
     </div>
     <div className="faq-question">When is the RSVP deadline?</div>
     <div className="faq-answer">
