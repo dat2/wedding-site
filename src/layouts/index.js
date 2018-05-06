@@ -94,6 +94,8 @@ function getTagLine({ pathname }) {
       return 'RSVP'
     case '/thanks/':
       return ''
+    case '/faq/':
+      return 'FAQ'
     default:
       return 'Coming Soon'
   }
