@@ -41,7 +41,7 @@ const FaqPage = () => (
     </div>
     <div className="faq-answer">
       All colours of the rainbow are welcome! We only ask you try to avoid stark
-      white or black. However dress Pants and Suits may be black.
+      white or black. However dress pants and suits may be black.
     </div>
 
     <div className="faq-question">
@@ -77,13 +77,16 @@ const FaqPage = () => (
     <div className="faq-question">What time will the wedding end?</div>
     <div className="faq-answer">
       The ceremony will end just before noon, after which lunch is served.
-      Please visit us up at the altar so we may gift you a box of snacks. You
+      Please join us up at the altar so we may gift you a box of snacks. You
       are welcome to stay back and socialize or leave anytime after.
     </div>
 
     <div className="faq-question">How can I RSVP?</div>
     <div className="faq-answer">
-      Please RSVP online <Link to="/rsvp/">here</Link>.
+      <div>Please RSVP online <Link to="/rsvp/">here</Link>.</div>
+      <div>or email us at <a href="mailto:nickwedspirave@gmail.com?Subject=RSVP">nickwedspirave@gmail.com</a>.</div>
+      <div>or by phone call to the <b>Dujay Residence</b>: (416) 898-4590, or <b>Eahalaivan Residence</b>: (905) 472-5599
+      </div>
     </div>
     <div className="faq-question">When is the RSVP deadline?</div>
     <div className="faq-answer">
@@ -92,7 +95,7 @@ const FaqPage = () => (
 
     <div className="faq-question">Is there a gifts registry?</div>
     <div className="faq-answer">
-      The most important gift to us is have you share our day, but if insist
+      The most important gift to us is have you share our day, but you if insist
       please contact the Dujay residence for more details at (416) 898-4590.
       Information will also be sent with your RSVP confirmation :)
     </div>
