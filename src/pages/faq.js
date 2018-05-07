@@ -93,12 +93,6 @@ const FaqPage = () => (
       Please let us know by <b>June 15, 2018</b>.
     </div>
 
-    <div className="faq-question">Is there a gifts registry?</div>
-    <div className="faq-answer">
-      The most important gift to us is have you share our day, but you if insist
-      please contact the Dujay residence for more details at (416) 898-4590.
-      Information will also be sent with your RSVP confirmation :)
-    </div>
     <div className="faq-question">
       Is there someone I can contact if I have any other questions about the
       wedding?
