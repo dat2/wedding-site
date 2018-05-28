@@ -53,7 +53,7 @@ const FaqPage = () => (
     </div>
     <div className="faq-question">Will food be served?</div>
     <div className="faq-answer">
-      Yes! We will have breafast and lunch with snacks provided in between.
+      Yes! We will have breakfast and lunch with snacks provided in between.
     </div>
     <div className="faq-question">What kind of food will be served?</div>
     <div className="faq-answer">
