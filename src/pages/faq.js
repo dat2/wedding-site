@@ -58,7 +58,7 @@ const FaqPage = () => (
     <div className="faq-question">What kind of food will be served?</div>
     <div className="faq-answer">
       Following tradition, all food and drinks will be vegetarian and
-      non-alchoholic. We are still working on the menu! Check back soon for more
+      non-alcoholic. We are still working on the menu! Check back soon for more
       details.
     </div>
     <div className="faq-question">
