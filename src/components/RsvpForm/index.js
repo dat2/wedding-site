@@ -1,9 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { compose, withState, withHandlers } from 'recompose'
 
 const FormGroup = styled.div`
-  display: ${props => (props.hidden ? 'none' : 'block')};
   margin-bottom: 15px;
 `
 
@@ -28,8 +26,8 @@ const Radio = styled.input.attrs({
   margin-right: 8px;
 `
 
-const FieldText = ({ hidden, id, label, ...props }) => (
-  <FormGroup hidden={hidden}>
+const FieldText = ({ id, label, ...props }) => (
+  <FormGroup>
     <Label htmlFor={id}>{label}</Label>
     <Input type="text" id={id} {...props} />
   </FormGroup>
@@ -49,16 +47,6 @@ const FieldRadio = ({ id, label, ...props }) => (
   </FormGroup>
 )
 
-const range = (min, max) => Array.from(new Array(max - min), (_, i) => i + min)
-
-const enhance = compose(
-  withState('selected', 'setSelected', 0),
-  withHandlers({
-    onChange: props => event => {
-      props.setSelected(parseInt(event.target.value, 10))
-    },
-  })
-)
 
 const RsvpForm = ({ selected, onChange }) => (
   <form
@@ -100,28 +88,17 @@ const RsvpForm = ({ selected, onChange }) => (
       value="false"
       label="Sorry, can't make it"
     />
-    <FormGroup>
-      <Label>How many guests will you be bringing?</Label>
-      <select value={selected} onChange={onChange}>
-        {range(0, 6).map(index => (
-          <option key={index} value={index}>
-            {index}
-          </option>
-        ))}
-      </select>
-    </FormGroup>
-    {['one', 'two', 'three', 'four', 'five'].map((label, index) => (
+    {['one', 'two', 'three', 'four', 'five'].map(label => (
       <FieldText
         key={label}
         id={`guest-${label}`}
         name={`guest-${label}`}
         label={`Guest ${label[0].toUpperCase()}${label.substring(1)}`}
         placeholder="Guest"
-        hidden={selected < index + 1}
       />
     ))}
     <button className="btn btn-primary">Submit</button>
   </form>
 )
 
-export default enhance(RsvpForm)
+export default RsvpForm
