@@ -56,7 +56,7 @@ const RsvpForm = ({ selected, onChange }) => (
     data-netlify="true"
     data-netlify-honeypot="bot-field"
   >
-    <input hidden id="form-name" value="rsvp" />
+    <input hidden id="form-name" value="rsvp" name="form-name" />
     <FieldText
       id="name"
       name="name"
