@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
+import { compose, withState, withHandlers } from 'recompose'
 
 const FormGroup = styled.div`
+  display: ${props => (props.hidden ? 'none' : 'block')};
   margin-bottom: 15px;
 `
 
@@ -26,8 +28,8 @@ const Radio = styled.input.attrs({
   margin-right: 8px;
 `
 
-const FieldText = ({ id, label, ...props }) => (
-  <FormGroup>
+const FieldText = ({ hidden, id, label, ...props }) => (
+  <FormGroup hidden={hidden}>
     <Label htmlFor={id}>{label}</Label>
     <Input type="text" id={id} {...props} />
   </FormGroup>
@@ -47,8 +49,7 @@ const FieldRadio = ({ id, label, ...props }) => (
   </FormGroup>
 )
 
-
-const RsvpForm = ({ selected, onChange }) => (
+const RsvpForm = ({ coming, onComingChange }) => (
   <form
     name="rsvp"
     method="post"
@@ -56,7 +57,7 @@ const RsvpForm = ({ selected, onChange }) => (
     data-netlify="true"
     data-netlify-honeypot="bot-field"
   >
-    <input hidden id="form-name" value="rsvp" name="form-name" />
+    <input hidden id="form-name" defaultValue="rsvp" name="form-name" />
     <FieldText
       id="name"
       name="name"
@@ -78,19 +79,24 @@ const RsvpForm = ({ selected, onChange }) => (
       id="coming-true"
       name="coming"
       required={true}
-      value="true"
+      checked={coming}
+      value="yes"
+      onChange={onComingChange}
       label="Yes, I'll be there"
     />
     <FieldRadio
       id="coming-false"
       name="coming"
       required={true}
-      value="false"
+      checked={!coming}
+      value="no"
+      onChange={onComingChange}
       label="Sorry, can't make it"
     />
     {['one', 'two', 'three', 'four', 'five'].map(label => (
       <FieldText
         key={label}
+        hidden={!coming}
         id={`guest-${label}`}
         name={`guest-${label}`}
         label={`Guest ${label[0].toUpperCase()}${label.substring(1)}`}
@@ -101,4 +107,17 @@ const RsvpForm = ({ selected, onChange }) => (
   </form>
 )
 
-export default RsvpForm
+const enhance = compose(
+  withState('coming', 'setComing', true),
+  withHandlers({
+    onComingChange: props => event => {
+      if (event.target.id === 'coming-true') {
+        props.setComing(true)
+      } else {
+        props.setComing(false)
+      }
+    },
+  })
+)
+
+export default enhance(RsvpForm)
