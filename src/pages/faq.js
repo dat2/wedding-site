@@ -76,9 +76,10 @@ const FaqPage = () => (
     </div>
     <div className="faq-question">What time will the wedding end?</div>
     <div className="faq-answer">
-      The ceremony will end just before noon, after which lunch is served.
-      Please join us up at the altar so we may gift you a box of snacks. You
-      are welcome to stay back and socialize or leave anytime after.
+      The ceremony will end just before noon, please join us up at the
+      altar so we may gift you a box of snacks (the MC will announce this).
+      Lunch will be served thereafter, you are welcome to stay back and socialize
+      or leave anytime after.
     </div>
 
     <div className="faq-question">How can I RSVP?</div>
