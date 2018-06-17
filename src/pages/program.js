@@ -97,9 +97,9 @@ const ProgramPage = () => (
     <SideImage>
       <img
         src="https://parvathyramesh12.files.wordpress.com/2016/07/mrg1.png?w=680"
-        alt="Omum"
+        alt="Sacred Fire"
       />
-      <Caption>Omum</Caption>
+      <Caption>Sacred Fire</Caption>
     </SideImage>
     <Text>
       Pirave now enters the hall accompanied by her family and bridesmaids
@@ -194,15 +194,21 @@ const ProgramPage = () => (
       couple. With his finger Nick spots Pirave’s forehead with kunkumam
       (vermilion dust), another symbol of a married Hindu woman. The priest
       holds high a lit oil lamp symbolizing the divine light witnessing the
-      nuptial knot. The married couple now exchange garlands (mala matruthal)
-      three times and Nick moves to accommodate Pirave on his left, Shakthi’s
-      place beside Shiva. They also feed each other a mixture of fruit, milk,
-      and honey, as a promise of sweet and endless love they hope to share. From
-      this point on Pirave becomes a Sahatharmini or Dharma Pathini, an equal
-      partner in the responsibilities of social duties and the attainment of
-      their spiritual objectives.
+      nuptial knot. The married couple now exchange{' '}
+      <a href="https://en.wikipedia.org/wiki/Garland">garlands</a> (mala
+      matruthal) three times and Nick moves to accommodate Pirave on his left,
+      Shakthi’s place beside Shiva. They also feed each other a mixture of
+      fruit, milk, and honey, as a promise of sweet and endless love they hope
+      to share.
     </Text>
     <Header>HOLY STEPS AROUND THE FIRE (Padaksinam &amp; Poorna Ahuthi)</Header>
+    <SideImage>
+      <img
+        src="https://aninfinitejourney.files.wordpress.com/2017/10/indian-wedding-toe-ring-photos.jpg"
+        alt="Metti (Toe Ring)"
+      />
+      <Caption>Metti (Toe Ring)</Caption>
+    </SideImage>
     <Text>
       Tradition has it that marriage be formalized in the presence of Agni, the
       God of Fire. Here he stands as the universal witness to the union (Agni
@@ -230,6 +236,13 @@ const ProgramPage = () => (
       </li>
       <li>The seventh step is for spiritual union and merger of souls.</li>
     </List>
+    <SideImage>
+      <img
+        src="http://www.awesomewedding.in/wp-content/uploads/2015/09/wedding-game.jpg"
+        alt="Wedding Fun and Games"
+      />
+      <Caption>Wedding Fun and Games</Caption>
+    </SideImage>
     <Text>
       As they go around the Agni certain rituals are performed in keeping with
       tradition. Nick places Pirave’s right foot on a granite stone and puts a
@@ -257,16 +270,11 @@ const ProgramPage = () => (
     </Text>
     <Header>THANK YOU</Header>
     <Text>
-      To our loving and courageous parents who continues to provide
-      extraordinary examples of how to live and love. We are eternally grateful
-      for all of your love and support and feel blessed to be your children. We
-      know we can always turn to you for encouragement and guidance. Thank you
-      for making this special day possible. We love you more than words can say.
-    </Text>
-    <Text>
-      To our family and friends who are here today, and those who cannot be with
-      us. WE love all and thank you for your love and friendship. It means so
-      much to us to have you celebrate the beginning of our lives together.
+      To our family and friends who will be joining us this day, and to those
+      who cannot be with us. We love all and thank you for your love and
+      friendship. It means so much to us to have you celebrate the beginning of
+      our lives together. We hope you enjoy our celebrations, music, and food!
+      ❤️
     </Text>
   </Container>
 )
