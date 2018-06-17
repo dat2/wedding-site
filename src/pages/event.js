@@ -3,10 +3,20 @@ import './event.less'
 
 const EventPage = () => (
   <div id="event">
-    <div><span className="event-title">Venue:</span> The Brighton Convention & Events Centre</div>
-    <div><span className="event-title">Address:</span> 2155 McNicoll Avenue, Toronto, ON M1V 5P1, Canada (Midland and McNicoll)</div>
-    <div><span className="event-title">Breakfast:</span> 9am</div>
-    <div><span className="event-title">Lunch:</span> Noon</div>
+    <div>
+      <span className="event-title">Venue:</span> The Brighton Convention &
+      Events Centre
+    </div>
+    <div>
+      <span className="event-title">Address:</span> 2155 McNicoll Avenue,
+      Toronto, ON M1V 5P1, Canada (Midland and McNicoll)
+    </div>
+    <div>
+      <span className="event-title">Breakfast:</span> 9am
+    </div>
+    <div>
+      <span className="event-title">Lunch:</span> Noon
+    </div>
     <iframe
       width="100%"
       height="450"

@@ -76,17 +76,26 @@ const FaqPage = () => (
     </div>
     <div className="faq-question">What time will the wedding end?</div>
     <div className="faq-answer">
-      The ceremony will end just before noon, please join us up at the
-      altar so we may gift you a box of snacks (the MC will announce this).
-      Lunch will be served thereafter, you are welcome to stay back and socialize
-      or leave anytime after.
+      The ceremony will end just before noon, please join us up at the altar so
+      we may gift you a box of snacks (the MC will announce this). Lunch will be
+      served thereafter, you are welcome to stay back and socialize or leave
+      anytime after.
     </div>
 
     <div className="faq-question">How can I RSVP?</div>
     <div className="faq-answer">
-      <div>Please RSVP online <Link to="/rsvp/">here</Link>.</div>
-      <div>or email us at <a href="mailto:nickwedspirave@gmail.com?Subject=RSVP">nickwedspirave@gmail.com</a>.</div>
-      <div>or by phone call to the <b>Dujay Residence</b>: (416) 898-4590, or <b>Eahalaivan Residence</b>: (905) 472-5599
+      <div>
+        Please RSVP online <Link to="/rsvp/">here</Link>.
+      </div>
+      <div>
+        or email us at{' '}
+        <a href="mailto:nickwedspirave@gmail.com?Subject=RSVP">
+          nickwedspirave@gmail.com
+        </a>.
+      </div>
+      <div>
+        or by phone call to the <b>Dujay Residence</b>: (416) 898-4590, or{' '}
+        <b>Eahalaivan Residence</b>: (905) 472-5599
       </div>
     </div>
     <div className="faq-question">When is the RSVP deadline?</div>
