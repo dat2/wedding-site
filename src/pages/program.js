@@ -19,6 +19,14 @@ const Container = styled.div`
   & ${Header}:not(:first-child) {
     margin-top: 20px;
   }
+
+  a {
+    color: #a39683;
+    text-decoration: underline;
+    &:hover {
+      color: #fda38d;
+    }
+  }
 `
 
 const SideImage = styled.div`
