@@ -95,7 +95,7 @@ function getTagLine({ pathname }) {
     case '/thanks/':
       return ''
     case '/program/':
-      return ''
+      return 'Wedding Program'
     case '/faq/':
       return 'FAQ'
     default:
