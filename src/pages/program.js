@@ -147,9 +147,9 @@ const ProgramPage = () => (
       <a href="https://en.wikipedia.org/wiki/Tilaka">thilakam</a> (turmeric) on
       each other foreheads. Pirave’s parents with betel leaf and coconut in hand
       places their daughter's hand in Nick’s hand indicating that he accept,
-      cherish, and protect her all through life. She gives Nick a gold coin
+      cherish, and protect her all through life. They give Nick a gold coin
       symbolic of giving away the bride. Nick accepts the coin and in turn gives
-      it to his mother. This signifies the acceptance of Pirave by Nick and his
+      it to his parents. This signifies the acceptance of Pirave by Nick and his
       family.
     </Text>
     <Header>BLESSING OF THE SAREE AND thaali</Header>
