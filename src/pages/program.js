@@ -145,8 +145,8 @@ const ProgramPage = () => (
       both Pirave and Nick to the altar who great each other by sprinkling
       scented water and placing yellow{' '}
       <a href="https://en.wikipedia.org/wiki/Tilaka">thilakam</a> (turmeric) on
-      each other foreheads. Pirave’s mother with betel leaf and coconut in hand
-      places her daughter's hand in Nick’s hand indicating that he accept,
+      each other foreheads. Pirave’s parents with betel leaf and coconut in hand
+      places their daughter's hand in Nick’s hand indicating that he accept,
       cherish, and protect her all through life. She gives Nick a gold coin
       symbolic of giving away the bride. Nick accepts the coin and in turn gives
       it to his mother. This signifies the acceptance of Pirave by Nick and his
