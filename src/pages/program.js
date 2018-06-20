@@ -142,7 +142,7 @@ const ProgramPage = () => (
       The Kanyaa Thanam ritualis the most sentimental part of the wedding. It is
       where Pirave’s parents give their daughter’s hand in marriage to Nick,
       making Pirave a member of Nick’s family. The priest calls the mothers of
-      both Pirave and Nick to the altar who great each other by sprinkling
+      both Pirave and Nick to the altar who greet each other by sprinkling
       scented water and placing yellow{' '}
       <a href="https://en.wikipedia.org/wiki/Tilaka">thilakam</a> (turmeric) on
       each other foreheads. Pirave’s parents with betel leaf and coconut in hand
